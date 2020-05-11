@@ -7,6 +7,8 @@
 
 [Data Model](https://github.com/faimoh/todowebapp#data-model)
 
+[Application Architecture](https://github.com/faimoh/todowebapp#application-architecture)
+
 
 # todowebapp
 A Java based web application for ToDo activities. Through this web application, one can create, read and update their todos through a modern web browser. The application also implements AAA, which means every user has their own account and their todo list etc. are private to them.
@@ -56,15 +58,22 @@ The last two items are worth observing. Usually, it is believed that a user with
 
 We want the todo lists to persist always. Which means, once a todo item is created successfully by a user, it can never be deleted. Similarly, we also don't want to delete a user account. In conclusion, we don't want to support 'delete' operations in our application. Thus, we only support CRU out of CRUD.
 
-Because, we want our application to maintain private todo lists, we want the application to provide login and logout mechanisms. This is called 'authentication'. Every user, including 'admin', should first authenticate themselves. Upon successful authentication, a user will be redirected to their workspace. Because we are discussing two types of users (one admin and the other normal), we shall have two types of workspaces meant for them. An admin user shall be only working with user account management workspace. A normal user shall be only working with todo list management workspace. Both are exclusive. A normal user cannot see admin's workspace. And admin user cannot see normal user's workspace.
+Because, we want our application to maintain private todo lists, we want the application to provide login and logout mechanisms. This is called 'authentication'. Every user, including 'admin', should first authenticate themselves. Upon successful authentication, a user will be redirected to their workspace. Because we are discussing two types of users (one admin and the other normal), we shall have two types of workspaces on our application. An admin user shall be only working with user account management workspace. A normal user shall be only working with todo list management workspace. Both are exclusive. A normal user cannot see admin's workspace. And admin user cannot see normal user's workspace. This is called 'authorization'.
 
-In addition to the above requirements, we want our application to store the details of users' login and logout timestamps.
-
+In addition to the above requirements, we want our application to store the details of users' login and logout timestamps. Through this we are tracking users' activity on our application. This is not exactly 'accounting' from AAA, but for our application this serves the purpose of calling it as 'accounting'.
 
 ## Data Model
 
 ## Application Architecture
-We shall develop this application following the MVC 2 desgin pattern. Our application will be action based.
+We shall develop this application following the famous and widely used MVC 2 desgin pattern. Our application will be action based. When a user sends a HTTP request to our application, we translate it to corresponding action on our application. The actions we support are create, read and update (CRU). Our application essentially is a data driven. It facilitates actions on the database. It helps users to store and manage their data on a remote database securely and safely with the help of authentication and authorization mechanisms.
+
+So, here's how we are going to translate HTTP requests to actions:
+
+| HTTP Method   | ACTION   |
+| :------------ |:-------------|
+| HTTP GET      | Read details |
+| HTTP POST     | Create or update |
+
 
 ## Class Diagrams
 
