@@ -1,3 +1,13 @@
+# Table of Contents
+[Introduction](https://github.com/faimoh/todowebapp#todowebapp)
+
+[Technologies Used](https://github.com/faimoh/todowebapp#technologies-used)
+
+[Requirements Analysis](https://github.com/faimoh/todowebapp#requirements-analysis)
+
+[Data Model](https://github.com/faimoh/todowebapp#data-model)
+
+
 # todowebapp
 A Java based web application for ToDo activities. Through this web application, one can create, read and update their todos through a modern web browser. The application also implements AAA, which means every user has their own account and their todo list etc. are private to them.
 
