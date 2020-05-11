@@ -1,12 +1,14 @@
 # todowebapp
-A Java based web app for ToDo activities.
+A Java based web application for ToDo activities. Through this web application, one can create, read and update their todos through a modern web browser. The application also implements AAA, which means every user has their own account and their todo list etc. are private to them.
 
 ## Technologies Used
 Java  
 Servlet, JSP  
-Tomcat  
+Apache Tomcat  
 MySQL  
-HTML  
+HTML
+Apache NetBeans IDE
+Firefox
 
 This is entirely a back-end project. So, front-end technologies like CSS, JavaScript are not used. The aim of the project is to effectively learn and showcase how different pieces of the Java Servlet API work together.
 
