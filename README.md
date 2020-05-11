@@ -30,7 +30,7 @@ We want our application to also support multiple users. And every user shall hav
 2. a distince username, which is an email address. Duplicate email addresses are not allowed.
 3. user's first name. Duplicates are allowed.
 4. user's last name. Duplicates are allowed.
-5. password. Duplicated are allowed.
+5. password. Duplicates are allowed.
 6. account status - enabled/disabled. Only enabled user accounts will be able to login the application.
 
 We want an 'administrator' account to only manage accounts. The administrator account shall use the username 'admin'. The admin user can:
@@ -42,9 +42,11 @@ We want an 'administrator' account to only manage accounts. The administrator ac
 6. not have access to any user's todo lists
 7. not maintain a personal todo list
 
-The last two items are worth observing. Usually, it is believed that a user with 'admin' rights has access to everybody's information. We don't want such. Also, we have already defined that 'admin' account for us is only to manage accounts. It is not for manageing todo lists of users. 'admin' user account is not often used. It is meant only for special purposes. For our application, we expect one user account to also handle 'admin' account. So, it will be the same person who logs in using 'admin' credentials only when required. Because it is an existing user account using 'admin' account only to manage all accounts, we don't want a separate task list for admin account. That doesn't serve any purpose.
+The last two items are worth observing. Usually, it is believed that a user with 'admin' rights has access to everybody's information. We don't want such. Also, we have already defined that 'admin' account for us is only to manage accounts. It is not for managing todo lists of users. 'admin' user account is not often used. It is meant only for special purposes. For our application, we expect one user account to also handle 'admin' account. So, it will be the same person who logs in using 'admin' credentials only when required. Because it is an existing user account using 'admin' account only to manage all accounts, we don't want a separate task list for admin account. That doesn't serve any purpose.
 
-We want the todo lists to persist always. Which means, once a todo idem is created successfully by a user, it can never be deleted. Similarly, we also don't want to delete a user account. In conclusion, we don't want to support 'delete' operations in our application.
+We want the todo lists to persist always. Which means, once a todo item is created successfully by a user, it can never be deleted. Similarly, we also don't want to delete a user account. In conclusion, we don't want to support 'delete' operations in our application. Thus, we only support CRU out of CRUD.
+
+Because, we want our application to maintain private todo lists, we want the application to provide login and logout mechanisms. This is called 'authentication'. Every user, including 'admin', should first authenticate themselves. Upon successful authentication, a user will be redirected to their workspace. Because we are discussing two types of users (one admin and the other normal), we shall have two types of workspaces meant for them. An admin user shall be only working with user account management workspace. A normal user shall be only working with todo list management workspace. Both are exclusive. A normal user cannot see admin's workspace. And admin user cannot see normal user's workspace.
 
 In addition to the above requirements, we want our application to store the details of users' login and logout timestamps.
 
