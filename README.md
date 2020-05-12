@@ -14,6 +14,16 @@
 ## Introduction
 A Java based web application for ToDo activities. Through this web application, one can create, read and update their todos through a modern web browser. The application also implements AAA, which means every user has their own account and their todo list etc. are private to them.
 
+This document is not for the newbies. You must possess good knowledge of below technologies to understand this document and the related application:
+1. Java
+2. OOA&D
+3. SQL, RDBMS
+4. HTML
+5. HTTP
+6. Servlet, JSP
+7. Tomcat
+
+
 ## Technologies Used
 Java  
 Servlet, JSP  
