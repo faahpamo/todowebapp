@@ -128,6 +128,9 @@ Finally, we also have another requirement to store account session data. We shal
 
 Normally, in enterprise applications IDs are not stored as integers. Because it will be easier for someone to query others information by just using an integer! In real world applications, IDs are not numeric but alphanumeric, with upto 100 characters. Thus, making it impossible for someone to guess another ID!
 
+Here's the data model built based on the above information:
+
+![Figure 1](images/ToDo%20WebApp%20Data%20Model.png "Application Data Model")
 ## Application Architecture
 We shall develop this application following the famous and widely used MVC 2 desgin pattern. Our application will be action based. When a user sends a HTTP request to our application, we translate it to corresponding action on our application. The actions we support are create, read and update (CRU). Our application essentially is a data driven. It facilitates actions on the database. It helps users to store and manage their data on a remote database securely and safely with the help of authentication and authorization mechanisms. It acts as an HTML and HTTP based interface to the database.
 
