@@ -65,16 +65,24 @@ In addition to the above requirements, we want our application to store the deta
 ## Data Model
 
 ## Application Architecture
-We shall develop this application following the famous and widely used MVC 2 desgin pattern. Our application will be action based. When a user sends a HTTP request to our application, we translate it to corresponding action on our application. The actions we support are create, read and update (CRU). Our application essentially is a data driven. It facilitates actions on the database. It helps users to store and manage their data on a remote database securely and safely with the help of authentication and authorization mechanisms.
+We shall develop this application following the famous and widely used MVC 2 desgin pattern. Our application will be action based. When a user sends a HTTP request to our application, we translate it to corresponding action on our application. The actions we support are create, read and update (CRU). Our application essentially is a data driven. It facilitates actions on the database. It helps users to store and manage their data on a remote database securely and safely with the help of authentication and authorization mechanisms. It acts as an HTML and HTTP based interface to the database.
 
 When a user makes a HTTP request to our application, we send back requested data in the form of HTML. HTML supports links and forms to help users interact with web applications. Links are used to retrieve/get (HTTP GET) information, while forms are used to post data (HTTP POST) to the web application.
 
 So, here's how we are going to translate HTTP requests to actions:
 
-| HTML Element | HTTP Method   | Action  |
+| HTML Element | HTTP Method   | Application Action  |
 | :------------ |:-------------|:---------|
 | Hyperlink | HTTP GET      | Read details |
 | Form | HTTP POST     | Create or update |
+
+HTTP GET sends the data as query parameters to the URL. While, HTTP POST sends the data in HTTP request body. HTTP POST doesn't reveal the data through the URL, whereas HTTP GET does. So, HTTP GET is not suitable for sending login credentials. Nobody wants to see their username and password appended to the HTTP request URL! We shall use HTTP POST to send user's credentials while logging in.
+
+So, far we have decided how we are going to use HTTP, HTML and a database. There's another concept of HTTP that's essential for us to understand to decide the architecture of our HTTP based application. That's URL - uniform resource locator. Here's an example URL of a web application hosted on example.com server:
+
+http://www.example.com/webapp/details?id=12
+
+
 
 
 ## Class Diagrams
