@@ -29,8 +29,8 @@ Java
 Servlet, JSP  
 Apache Tomcat  
 MySQL  
-HTML
-Apache NetBeans IDE
+HTML   
+Apache NetBeans IDE   
 Firefox
 
 This is entirely a back-end project. So, front-end technologies like CSS, JavaScript are not used. The aim of the project is to effectively learn and showcase how different pieces of the Java Servlet API work together.
