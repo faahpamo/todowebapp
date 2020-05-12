@@ -145,11 +145,13 @@ So, here's how we are going to translate HTTP requests to actions:
 
 HTTP GET sends the data as query parameters to the URL. While, HTTP POST sends the data in HTTP request body. HTTP POST doesn't reveal the data through the URL, whereas HTTP GET does. So, HTTP GET is not suitable for sending login credentials. Nobody wants to see their username and password appended to the HTTP request URL! We shall use HTTP POST to send user's credentials while logging in.
 
-So, far we have decided how we are going to use HTTP, HTML and a database. There's another concept of HTTP that's essential for us to understand to decide the architecture of our HTTP based application. That's URL - uniform resource locator. Here's an example URL of a web application hosted on example.com server:
+So, far we have decided how we are going to use HTTP, HTML and a database. There's another concept of HTTP that's essential for us to understand to decide the architecture of our HTTP based application. That's URL - uniform resource locator. Here's an example URL of a web application called 'webapp' hosted on example.com server:
 
 http://www.example.com/webapp/details?id=12
 
+In the above example URL, 'http' is the protocol, 'www.example.com' is the domain name or server name, 'webapp' is the application context deployed on the server and 'details' is the application that we are sending our HTTP request for. 'id' is the query parameter that we are passing to the 'details' with a value of '12'. Query parameters provide us with a mechanism to pass parameters to the web application and receive related content back in response from the web application. For example, imagine a weather application running on a web server. Instead of providing us with the list of weather reports of all locations, we can send our choice of location as a query parameter to the web application. The application would then send in response the weather details of our choice of location.
 
+A web application runs on the web server, unlike applications that are run on our PCs. A Java application running on a web server is called as a Servlet. Servlets emulate the web applications. They run inside a container. Apache Tomcat is a popular example of such a container. The container software translates the raw HTTP requests and responses into Java objects and provides them for servlets. A static website serves the same content for every HTTP request. But, a servlet can generate dynamic content that is distinct for every HTTP request made.
 
 
 ## Class Diagrams
