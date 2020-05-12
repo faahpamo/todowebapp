@@ -64,6 +64,59 @@ Because, we want our application to maintain private todo lists, we want the app
 In addition to the above requirements, we want our application to store the details of users' login and logout timestamps. Through this we are tracking users' activity on our application. This is not exactly 'accounting' from AAA, but for our application this serves the purpose of calling it as 'accounting'.
 
 ## Data Model
+Based on the requirements that we have collected so far, we understand that we have to store data for below entities of the application:
+1. account
+2. task
+
+Example data for few accounts:
+|Account ID|Username|First Name|Last Name|Password|Status|
+|---|---|---|---|---|---|
+|1|admin|Administrator|User|password|enabled|
+|2|john@example.com|John|Johnsson|oneword|disabled|
+|3|eric@example.com|Eric|Ericsson|twoword|enabled|
+|4|ana@example.com|Ana|Mary|threeword|enabled|
+
+We see that account statuses are repeated throughout the table. So, as part of database normalization, it's better to put the repeated data in a separate table. There's some good reason behind. Let's say, we have 100 users. And we want to replace the words enabled and disabled with 1 and 2 respectively. We have to modify the status column of all rows of the table. Imagine how cumbersome it will be to do such modification for a table with thousands of rows! Database normalization at rescue, thankfully!
+
+After normalization, we shall have two tables - account_statuses and accounts:
+
+**ACCOUNT_STATUSES**
+|ID|Status|
+|---|---|
+|1|enabled|
+|2|disabled|
+
+**ACCOUNTS**
+|Account ID|Username|First Name|Last Name|Password|Status ID|
+|---|---|---|---|---|---|
+|1|admin|Administrator|User|password|1|
+|2|john@example.com|John|Johnsson|oneword|2|
+|3|eric@example.com|Eric|Ericsson|twoword|1|
+|4|ana@example.com|Ana|Mary|threeword|2|
+
+Similarly, we shall have two tables for tasks - task_statuses and tasks: 
+
+**TASK_STATUSES**
+|ID|Status|
+|---|---|
+|1|todo|
+|2|in progress|
+|3|done|
+
+**TASKS**
+|Task ID|Account ID|Details|Created At|Status ID|
+|---|---|---|---|---|
+|1|2|Buy pencils.|2019-05-06 17:40:03|2|
+|2|3|Buy books.|2019-05-07 7:40:03|1|
+
+Finally, we also have another requirement to store account session data. We shall store it as shown in below table:
+
+**ACCOUNT_SESSIONS**
+|Session ID|Account ID|Session Created|Session End|
+|---|---|---|---|
+|asd1gh|1|2019-05-06 17:40:03|2019-05-06 18:00:03|
+
+Normally, in enterprise applications IDs are not stored as integers. Because it will be easier for someone to query others information by just using an integer! In real world applications, IDs are not numeric but alphanumeric, with upto 100 characters. Thus, making it impossible for someone to guess another ID!
 
 ## Application Architecture
 We shall develop this application following the famous and widely used MVC 2 desgin pattern. Our application will be action based. When a user sends a HTTP request to our application, we translate it to corresponding action on our application. The actions we support are create, read and update (CRU). Our application essentially is a data driven. It facilitates actions on the database. It helps users to store and manage their data on a remote database securely and safely with the help of authentication and authorization mechanisms. It acts as an HTML and HTTP based interface to the database.
