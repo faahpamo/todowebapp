@@ -67,12 +67,14 @@ In addition to the above requirements, we want our application to store the deta
 ## Application Architecture
 We shall develop this application following the famous and widely used MVC 2 desgin pattern. Our application will be action based. When a user sends a HTTP request to our application, we translate it to corresponding action on our application. The actions we support are create, read and update (CRU). Our application essentially is a data driven. It facilitates actions on the database. It helps users to store and manage their data on a remote database securely and safely with the help of authentication and authorization mechanisms.
 
+When a user makes a HTTP request to our application, we send back requested data in the form of HTML. HTML supports links and forms to help users interact with web applications. Links are used to retrieve/get (HTTP GET) information, while forms are used to post data (HTTP POST) to the web application.
+
 So, here's how we are going to translate HTTP requests to actions:
 
-| HTTP Method   | ACTION   |
-| :------------ |:-------------|
-| HTTP GET      | Read details |
-| HTTP POST     | Create or update |
+| HTML Element | HTTP Method   | Action  |
+| :------------ |:-------------|:---------|
+| Hyperlink | HTTP GET      | Read details |
+| Form | HTTP POST     | Create or update |
 
 
 ## Class Diagrams
