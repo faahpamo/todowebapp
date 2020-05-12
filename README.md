@@ -128,7 +128,7 @@ Finally, we also have another requirement to store account session data. We shal
 
 Normally, in enterprise applications IDs are not stored as integers. Because it will be easier for someone to query others information by just using an integer! In real world applications, IDs are not numeric but alphanumeric, with upto 100 characters. Thus, making it impossible for someone to guess another ID!
 
-Here's the data model built based on the above information:
+We shall call our database as 'todo' in MySQL. And here's the data model built based on the above information:
 
 ![Figure 1](images/ToDo%20WebApp%20Data%20Model.png "Application Data Model")
 ## Application Architecture
