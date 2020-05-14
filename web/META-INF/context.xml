@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/todo">
+    <Resource 
+        auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" 
+        logAbandoned="true" maxIdle="30" maxTotal="8" maxWaitMillis="-1" 
+        name="jdbc/todo" username="todo" password="todo" 
+        removeAbandonedOnBorrow="true" removeAbandonedTimeout="60" 
+        type="javax.sql.DataSource" 
+        url="jdbc:mysql://localhost:3306/todo?autoReconnect=true"
+    />
+</Context>
