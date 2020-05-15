@@ -301,3 +301,12 @@ The purpose of our controller servlet is to:
 
 
 ## Views
+The job of an action handler is to execute the business logic and choose an appropriate view component as a response to the request made by an user. Here is a table of action handlers and their view components:
+|Action Handler|View Component|
+|---|---|
+|LoginAction|/WEB-INF/pages/admin/accounts/dashboard.jsp <br> /WEB-INF/pages/tasks/dashboard.jsp|
+|AdminAccountsDashboardAction|/WEB-INF/pages/admin/accounts/dashboard.jsp|
+|AdminNewAccountFormAction|/WEB-INF/pages/admin/accounts/newAccount.jsp|
+|AdminCreateAccountAction|/WEB-INF/pages/admin/accounts/createAccountResult.jsp|
+|AdminReadAccountDetailsAction|/WEB-INF/pages/admin/accounts/accountDetails.jsp|
+|AdminUpdateAccountAction|/WEB-INF/pages/admin/accounts/updateAccountResult.jsp|
