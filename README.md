@@ -10,11 +10,11 @@
 
 [Application Architecture](https://github.com/faimoh/todowebapp#application-architecture)
 
-[Controllers](https://github.com/faimoh/todowebapp#controllers)
+  * [Controllers](https://github.com/faimoh/todowebapp#controllers)
 
-[Action Handlers](https://github.com/faimoh/todowebapp#action-handlers)
+  * [Action Handlers](https://github.com/faimoh/todowebapp#action-handlers)
 
-[Views](https://github.com/faimoh/todowebapp#views)
+  * [Views](https://github.com/faimoh/todowebapp#views)
 
 ## Introduction
 A Java based web application for ToDo activities. Through this web application, one can create, read and update their todos through a modern web browser. The application also implements AAA, which means every user has their own account and their todo list etc. are private to them.
@@ -169,14 +169,14 @@ The todo web app that we are building will contain multiple parts - servlets, fi
 
 `http://localhost:8080/todo/`
 
-## Data Layer
+### Data Layer
 Our data layer consists of an implementation of DAO pattern and factory pattern on top of JDBC datasource. We choose JDBC datasource instead of drivermanager because we want to reap the benefits of connection pooling.
-## Controllers
+### Controllers
 We just have one servlet serving as the **Controller**, called 'Main'. A user's HTTP request is an action for us. So, the purpose of our controller servlet is to just choose an appropriate action for the HTTP request made. The controller servlet chooses an action handler and hands it over the request made by the user. We don't write the action execution steps in our controller. We keep it clean and lean. Its purpose is to 'choose' an action handler. Not to 'execute' the action by itself. After the action handler executes the requested action, the controller receives the 'next step' to be performed as a response from the action handler. Controller's job is to simply pick the resource that performs the requested response. In conclusion, we keep our controller away from all the business logic.
 
 We shall map our controller servlet to the URI pattern `/app/*`. So, our controller servlet will handle every URI that follows the pattern `/app/`. 
 
-## Action Handlers
+### Action Handlers
 An action requested by a user is the business logic for our application. Action handlers are the **Model** in our MVC implementation. Every action has to implement Action interface:
 
 ```java
@@ -311,7 +311,7 @@ The table below shows list of HTTP requests our application responds to and thei
 |Update my profile details|`POST /app/users/update`|UserUpdateProfileAction|
 |Logout|`GET /app/logout`|LogoutAction|
 
-## Views
+### Views
 The job of an action handler is to execute the business logic and choose an appropriate **View** component as a response to the request made by an user. The table below shows all action handlers and their view components:
 |Action Handler|View Component|
 |---|---|
