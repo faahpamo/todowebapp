@@ -133,7 +133,7 @@ Similarly, we shall have three tables for tasks - task_statuses, task_priorities
 |Task ID|Account ID|Details|Created At|Deadline|Last Updated|Status ID|Priority ID|
 |---|---|---|---|---|---|---|---|
 |1|2|Buy pencils.|2019-05-06 17:40:03|2019-05-07 17:40:03| |2|1|
-|2|3|Buy books.|2019-05-07 7:40:03|2019-05-07 17:40:03| |2|1|
+|2|3|Buy books.|2019-05-07 7:40:03|2019-05-07 17:40:03|2019-05-07 23:40:03|2|1|
 
 Finally, we also have another requirement to store account session data. We shall store it as shown in below table:
 
