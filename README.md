@@ -130,10 +130,10 @@ Similarly, we shall have three tables for tasks - task_statuses, task_priorities
 |4|not important and not urgent|
 
 **TASKS**
-|Task ID|Account ID|Details|Created At|Deadline|Last Updated|Status ID|Priority ID|
+|<sub>Task ID</sub>|<sub>Account ID</sub>|<sub>Details</sub>|<sub>Created At</sub>|<sub>Deadline</sub>|<sub>Last Updated</sub>|<sub>Status ID</sub>|<sub>Priority ID</sub>|
 |---|---|---|---|---|---|---|---|
-|1|2|Buy pencils.|<sub>2019-05-06 17:40:03</sub>|<sub>2019-05-07 17:40:03</sub>| |2|1|
-|2|3|Buy books.|<sub>2019-05-07 7:40:03</sub>|<sub>2019-05-07 17:40:03</sub>|<sub>2019-05-07 23:40:03</sub>|2|1|
+|<sub>1</sub>|<sub>2</sub>|<sub>Buy pencils.</sub>|<sub>2019-05-06 17:40:03</sub>|<sub>2019-05-07 17:40:03</sub>| |<sub>2|<sub>1|
+|<sub>2|<sub>3</sub>|<sub>Buy books.</sub>|<sub>2019-05-07 7:40:03</sub>|<sub>2019-05-07 17:40:03</sub>|<sub>2019-05-07 23:40:03</sub>|<sub>2</sub>|<sub>1</sub>|
 
 Finally, we also have another requirement to store account session data. We shall store it as shown in below table:
 
