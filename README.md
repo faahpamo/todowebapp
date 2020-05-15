@@ -12,7 +12,7 @@
 
 [Controllers](https://github.com/faimoh/todowebapp#controllers)
 
-[Action Handlers](https://github.com/faimoh/todowebapp#action-handlers)
+  * [Action Handlers](https://github.com/faimoh/todowebapp#action-handlers)
 
 
 ## Introduction
