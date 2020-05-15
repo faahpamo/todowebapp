@@ -169,11 +169,6 @@ The todo web app that we are building will contain multiple servlets. We shall p
 
 http://localhost:8080/todo/
 
-|User Action|HTML Element|HTTP Method|HTTP Request URL|Application Action|HTTP Response|
-|---|---|---|---|---|---|
-|Login|Hyperlink|GET|http://localhost:8080/todo/ |LoginAction|OK:HTTP 200 login.jsp<br />ERROR: HTTP 200 login.jsp|
-|Login|Form|POST|http://localhost:8080/todo/app/login |LoginAction|OK:HTTP 302<br />ERROR: HTTP 200 login.jsp|
-
 ## Data Layer
 Our data layer consists of an implementation of DAO pattern and factory pattern on top of JDBC datasource. We choose JDBC datasource instead of drivermanager because we want to reap the benefits of connection pooling.
 ## Controllers
