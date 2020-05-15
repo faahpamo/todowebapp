@@ -176,4 +176,54 @@ http://localhost:8080/todo/
 
 ## Controllers
 
+### Action Handlers
+Every action has to implement Action interface:
+
+```java
+public interface Action {
+
+    /*
+    An action is supposed to execute and return results. ActionResponse represents the response.
+    */
+    public abstract ActionResponse execute(HttpServletRequest request, HttpServletResponse response)
+            throws Exception;
+}
+```
+An action is supposed to execute and return results. We create a special class for such result - ActionResponse.
+
+```java
+public class ActionResponse {
+    private String method;
+    private String viewPath;
+
+    public ActionResponse() {
+        this.method = "";
+        this.viewPath = "";
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    public String getMethod() {
+        return this.method;
+    }
+
+    public void setViewPath(String viewPath) {
+        this.viewPath = viewPath;
+    }
+
+    public String getViewPath() {
+        return this.viewPath;
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getName()+"["+this.method+":"+this.viewPath+"]";
+    }
+}
+```
+
+
+
 ## Views
