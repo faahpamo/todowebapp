@@ -258,9 +258,9 @@ public class ActionFactory {
 }
 ```
 The purpose of our controller servlet is to:
-1. choose an appropriate action handler
-2. ask the action handler to execute and return its response
-3. perform the requested method of response
+1. select an appropriate action handler (model or business logic) and pass it the HTTP request object
+2. ask the action handler to execute and take its response
+3. select the view component decided by the action handler and pass it the HTTP request object
 
 ```java
  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -329,3 +329,5 @@ The job of an action handler is to execute the business logic and choose an appr
 |UserReadProfileAction|`/WEB-INF/pages/users/viewProfile.jsp`|
 |UserUpdateProfileAction|`/WEB-INF/pages/users/updateProfileResult.jsp`|
 |UnknownAction|`/WEB-INF/pages/users/unknownAction.jsp`|
+
+The view component builds the required HTML response that will be sent to the the user. View component reads the messages set by the action handler and shows it to the user.
