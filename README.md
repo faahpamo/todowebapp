@@ -189,7 +189,7 @@ public interface Action {
             throws Exception;
 }
 ```
-An action is supposed to execute and return results. We create a special class for such result - ActionResponse.
+An action is supposed to execute and return results. We create a special class for such result - ActionResponse. An action handler can choose to 'forward' or 'redirect'.
 
 ```java
 public class ActionResponse {
@@ -223,7 +223,75 @@ public class ActionResponse {
     }
 }
 ```
+We implement the factory design pattern. We create a factory class - ActionFactory - to give us the action handler class we require:
+```java
+public class ActionFactory {
+    private static Map<String, Action> actions = new HashMap<String, Action>() {
+        {
+            put(new String("POST/login"), new LoginAction());
+            put(new String("GET/login"), new LoginAction());
+            put(new String("GET/logout"), new LogoutAction());
+            put(new String("GET/admin/accounts/dashboard"), new AdminAccountsDashboardAction());
+            put(new String("GET/admin/accounts/new"), new AdminNewAccountFormAction());
+            put(new String("POST/admin/accounts/create"), new AdminCreateAccountAction());
+            put(new String("GET/admin/accounts/details"), new AdminReadAccountDetailsAction());
+            put(new String("POST/admin/accounts/update"), new AdminUpdateAccountAction());
+            put(new String("GET/tasks/dashboard"), new UserTasksDashboardAction());
+            put(new String("GET/tasks/new"), new UserNewTaskFormAction());
+            put(new String("GET/tasks/details"), new UserReadTaskDetailsAction());
+            put(new String("POST/tasks/create"), new UserCreateTaskAction());
+            put(new String("POST/tasks/update"), new UserUpdateTaskAction());
+            put(new String("GET/users/profile"), new UserReadProfileAction());
+            put(new String("POST/users/update"), new UserUpdateProfileAction());
+        }
+    ;
+    };
 
+    public static Action getAction(HttpServletRequest request) {
+        Action action = actions.get(request.getMethod() + request.getPathInfo());
+        if (action == null) {
+            return new UnknownAction();
+        } else {
+            return action;
+        }
+    }
+}
+```
+The purpose of our controller servlet is to:
+1. choose an appropriate action handler
+2. ask the action handler to execute and return its response
+3. perform the requested method of response
+
+```java
+ protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Action action = ActionFactory.getAction(request);
+        try {
+            ActionResponse actionResponse = action.execute(request, response);
+            if (actionResponse.getMethod().equalsIgnoreCase("forward")) {
+                System.out.println(this.getClass().getCanonicalName() + ":forward:" + actionResponse);
+                this.getServletContext().getRequestDispatcher(actionResponse.getViewPath()).forward(request, response);
+            } else if (actionResponse.getMethod().equalsIgnoreCase("redirect")) {
+                System.out.println(this.getClass().getCanonicalName() + ":redirect:" + actionResponse);
+                if (actionResponse.getViewPath().equals(request.getContextPath())) {
+                    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+                    response.setHeader("Pragma", "no-cache");
+                    response.setDateHeader("Expires", 0);
+                }
+                response.sendRedirect(actionResponse.getViewPath());
+            } else if (actionResponse.getMethod().equalsIgnoreCase("error")) {
+                System.out.println(this.getClass().getCanonicalName() + ":error:" + actionResponse);
+                response.sendError(401);
+            } else {
+                System.out.println(this.getClass().getCanonicalName() + ":" + actionResponse);
+                response.sendRedirect(request.getContextPath());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }    
+```
+    
 
 
 ## Views
