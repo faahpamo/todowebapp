@@ -17,6 +17,8 @@
   * [Action Handlers](https://github.com/faimoh/todowebapp#action-handlers)
 
   * [Views](https://github.com/faimoh/todowebapp#views)
+  
+[Results](https://github.com/faimoh/todowebapp#results)
 
 ## Introduction
 A Java based web application for ToDo activities. Through this web application, one can create, read and update their todos through a modern web browser. The application also implements AAA, which means every user has their own account and their todo list etc. are private to them.
@@ -333,3 +335,6 @@ The job of an action handler is to execute the business logic and choose an appr
 |UnknownAction|`/WEB-INF/pages/users/unknownAction.jsp`|
 
 The view component builds the required HTML response that will be sent to the the user. View component reads the messages set by the action handler and shows it to the user.
+
+## Results
+So, here's how our application looks:
