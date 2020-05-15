@@ -10,6 +10,8 @@
 
 [Application Architecture](https://github.com/faimoh/todowebapp#application-architecture)
 
+  * [Data Layer](https://github.com/faimoh/todowebapp#data-layer)
+
   * [Controllers](https://github.com/faimoh/todowebapp#controllers)
 
   * [Action Handlers](https://github.com/faimoh/todowebapp#action-handlers)
