@@ -291,23 +291,23 @@ The purpose of our controller servlet is to:
 ```
     
 The table below shows list of HTTP requests our application responds to and their associated action handlers:
-|HTTP Request URI|Action Handler|
-|---|---|
-|GET /app/login|LoginAction|
-|POST /app/login|LoginAction|
-|GET /app/admin/accounts/dashboard|AdminAccountsDashboardAction|
-|GET /app/admin/accounts/new|AdminNewAccountFormAction|
-|POST /app/admin/accounts/create|AdminCreateAccountAction|
-|GET /app/admin/accounts/details?id=xx|AdminReadAccountDetailsAction|
-|POST /app/admin/accounts/update|AdminUpdateAccountAction|
-|GET /app/tasks/dashboard|UserTasksDashboardAction|
-|GET /app/tasks/new|UserNewTaskFormAction|
-|POST /app/tasks/create|UserCreateTaskAction|
-|GET /app/tasks/details?id=xx|UserReadTaskDetailsAction|
-|POST /app/tasks/update|UserUpdateTaskAction|
-|GET /app/users/profile|UserReadProfileAction|
-|POST /app/users/update|UserUpdateProfileAction|
-|GET /app/logout|LogoutAction|
+|User's Intended Action|HTTP Request URI|Action Handler|
+|---|---|---|
+|Submit empty login credentials|GET /app/login|LoginAction|
+|Submit login credentials|POST /app/login|LoginAction|
+|Get accounts dashboard|GET /app/admin/accounts/dashboard|AdminAccountsDashboardAction|
+|Get new account form|GET /app/admin/accounts/new|AdminNewAccountFormAction|
+|Submit new account details|POST /app/admin/accounts/create|AdminCreateAccountAction|
+|Get details of an account|GET /app/admin/accounts/details?id=xx|AdminReadAccountDetailsAction|
+|Update details of an account|POST /app/admin/accounts/update|AdminUpdateAccountAction|
+|Get tasks dashboard|GET /app/tasks/dashboard|UserTasksDashboardAction|
+|Get new task form|GET /app/tasks/new|UserNewTaskFormAction|
+|Submit new task details|POST /app/tasks/create|UserCreateTaskAction|
+|Get details of a task|GET /app/tasks/details?id=xx|UserReadTaskDetailsAction|
+|Update details of a task|POST /app/tasks/update|UserUpdateTaskAction|
+|Get details of my profile|GET /app/users/profile|UserReadProfileAction|
+|Update my profile details|POST /app/users/update|UserUpdateProfileAction|
+|Logout|GET /app/logout|LogoutAction|
 
 ## Views
 The job of an action handler is to execute the business logic and choose an appropriate view component as a response to the request made by an user. The table below shows all action handlers and their view components:
