@@ -179,9 +179,10 @@ http://localhost:8080/todo/
 ## Data Layer
 
 ## Controllers
+We just have one servlet serving as the controller, called 'Main'. A user's HTTP request is an action for us. So, the purpose of our controller servlet is to just choose an appropriate action for the HTTP request made. The controller servlet chooses an action handler and hands it over the request made by the user. We don't write the action execution steps in our controller. We keep it clean and lean. Its purpose is to 'choose' an action handler. Not to 'execute' the action by itself. After the action handler executes the requested action, the controller receives the 'next step' to be performed as a response from the action handler. Controller's job is to simply pick the resource that performs the requested response. In conclusion, we keep our controller away from all the business logic.
 
 ### Action Handlers
-Every action has to implement Action interface:
+An action requested by a user is the business logic for our application. Every action has to implement Action interface:
 
 ```java
 public interface Action {
