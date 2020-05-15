@@ -295,10 +295,27 @@ The purpose of our controller servlet is to:
     }    
 ```
     
-
+The table below shows list of HTTP requests our application responds to and their associated action handlers:
+|HTTP Request URI|Action Handler|
+|---|---|
+|GET /app/login|LoginAction|
+|POST /app/login|LoginAction|
+|GET /app/admin/accounts/dashboard|AdminAccountsDashboardAction|
+|GET /app/admin/accounts/new|AdminNewAccountFormAction|
+|POST /app/admin/accounts/create|AdminCreateAccountAction|
+|GET /app/admin/accounts/details?id=xx|AdminReadAccountDetailsAction|
+|POST /app/admin/accounts/update|AdminUpdateAccountAction|
+|GET /app/tasks/dashboard|UserTasksDashboardAction|
+|GET /app/tasks/new|UserNewTaskFormAction|
+|POST /app/tasks/create|UserCreateTaskAction|
+|GET /app/tasks/details?id=xx|UserReadTaskDetailsAction|
+|POST /app/tasks/update|UserUpdateTaskAction|
+|GET /app/users/profile|UserReadProfileAction|
+|POST /app/users/update|UserUpdateProfileAction|
+|GET /app/logout|LogoutAction|
 
 ## Views
-The job of an action handler is to execute the business logic and choose an appropriate view component as a response to the request made by an user. Here is a table of action handlers and their view components:
+The job of an action handler is to execute the business logic and choose an appropriate view component as a response to the request made by an user. The table below shows all action handlers and their view components:
 |Action Handler|View Component|
 |---|---|
 |LoginAction|/WEB-INF/pages/admin/accounts/dashboard.jsp <br> /WEB-INF/pages/tasks/dashboard.jsp|
