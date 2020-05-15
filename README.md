@@ -10,6 +10,10 @@
 
 [Application Architecture](https://github.com/faimoh/todowebapp#application-architecture)
 
+[Controllers](https://github.com/faimoh/todowebapp#controllers)
+
+[Action Handlers](https://github.com/faimoh/todowebapp#action-handlers)
+
 
 ## Introduction
 A Java based web application for ToDo activities. Through this web application, one can create, read and update their todos through a modern web browser. The application also implements AAA, which means every user has their own account and their todo list etc. are private to them.
