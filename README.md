@@ -307,3 +307,11 @@ The job of an action handler is to execute the business logic and choose an appr
 |AdminCreateAccountAction|/WEB-INF/pages/admin/accounts/createAccountResult.jsp|
 |AdminReadAccountDetailsAction|/WEB-INF/pages/admin/accounts/accountDetails.jsp|
 |AdminUpdateAccountAction|/WEB-INF/pages/admin/accounts/updateAccountResult.jsp|
+|UserTasksDashboardAction|/WEB-INF/pages/tasks/dashboard.jsp|
+|UserNewTaskFormAction|/WEB-INF/pages/tasks/newTask.jsp|
+|UserCreateTaskAction|/WEB-INF/pages/tasks/createTeaskResult.jsp|
+|UserReadTaskDetailsAction|/WEB-INF/pages/tasks/taskDetails.jsp|
+|UserUpdateTaskAction|/WEB-INF/pages/tasks/updateTaskResult.jsp|
+|UserReadProfileAction|/WEB-INF/pages/users/viewProfile.jsp|
+|UserUpdateProfileAction|/WEB-INF/pages/users/updateProfileResult.jsp|
+|UnknownAction|/WEB-INF/pages/users/unknownAction.jsp|
