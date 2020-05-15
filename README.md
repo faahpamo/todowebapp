@@ -46,15 +46,14 @@ For our application, we begin with defining what a todo is for us. A todo is a t
 
 Initially, a task will have the status 'todo'. When we start working on it, we change it to 'in progress'. Once the task gets accomplished, we mark its status as 'done'.
 
-Also, we don't want to specify a deadline for a task that we create. We just want a simple todo list.
-
 We want our application to also support multiple users. And every user shall have their own private list. Thus, users cannot see others' todo list. A user shall be identified by their username, which is their valid email address for us. Users are given accounts on our application. Thus, an account has below properties:
 1. an unique account identification number such as a positive integer
 2. a distince username, which is an email address. Duplicate email addresses are not allowed.
 3. user's first name. Duplicates are allowed.
 4. user's last name. Duplicates are allowed.
 5. password. Duplicates are allowed.
-6. account status - enabled/disabled. Only enabled user accounts will be able to login the application.
+6. created_at - the exact timestamp the account was created in the database.
+7. account status - enabled/disabled. Only enabled user accounts will be able to login the application.
 
 We want an 'administrator' account to only manage accounts. The administrator account shall use the username 'admin'. The admin user can:
 1. create a user account
@@ -79,12 +78,12 @@ Based on the requirements that we have collected so far, we understand that we h
 2. task
 
 Example data for few accounts:
-|Account ID|Username|First Name|Last Name|Password|Status|
-|---|---|---|---|---|---|
-|1|admin|Administrator|User|password|enabled|
-|2|john@example.com|John|Johnsson|oneword|disabled|
-|3|eric@example.com|Eric|Ericsson|twoword|enabled|
-|4|ana@example.com|Ana|Mary|threeword|enabled|
+|Account ID|Username|First Name|Last Name|Password|Created At|Status|
+|---|---|---|---|---|---|---|
+|1|admin|Administrator|User|password|2020-05-06 17:34:04|enabled|
+|2|john@example.com|John|Johnsson|oneword|2020-05-07 12:34:04|disabled|
+|3|eric@example.com|Eric|Ericsson|twoword|2020-05-08 13:34:04|enabled|
+|4|ana@example.com|Ana|Mary|threeword|2020-05-09 11:34:04|enabled|
 
 We see that account statuses are repeated throughout the table. So, as part of database normalization, it's better to put the repeated data in a separate table. There's some good reason behind. Let's say, we have 100 users. And we want to replace the words enabled and disabled with 1 and 2 respectively. We have to modify the status column of all rows of the table. Imagine how cumbersome it will be to do such modification for a table with thousands of rows! Database normalization at rescue, thankfully!
 
