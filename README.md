@@ -174,6 +174,8 @@ Our data layer consists of an implementation of DAO pattern and factory pattern 
 ## Controllers
 We just have one servlet serving as the **Controller**, called 'Main'. A user's HTTP request is an action for us. So, the purpose of our controller servlet is to just choose an appropriate action for the HTTP request made. The controller servlet chooses an action handler and hands it over the request made by the user. We don't write the action execution steps in our controller. We keep it clean and lean. Its purpose is to 'choose' an action handler. Not to 'execute' the action by itself. After the action handler executes the requested action, the controller receives the 'next step' to be performed as a response from the action handler. Controller's job is to simply pick the resource that performs the requested response. In conclusion, we keep our controller away from all the business logic.
 
+We shall map our controller servlet to the URI pattern `/app/*`. So, our controller servlet will handle every URI that follows the pattern `/app/`. 
+
 ## Action Handlers
 An action requested by a user is the business logic for our application. Action handlers are the **Model** in our MVC implementation. Every action has to implement Action interface:
 
@@ -293,37 +295,37 @@ The purpose of our controller servlet is to:
 The table below shows list of HTTP requests our application responds to and their associated action handlers:
 |User's Intended Action|HTTP Request URI|Action Handler|
 |---|---|---|
-|Submit empty login credentials|GET /app/login|LoginAction|
-|Submit login credentials|POST /app/login|LoginAction|
-|Get accounts dashboard|GET /app/admin/accounts/dashboard|AdminAccountsDashboardAction|
-|Get new account form|GET /app/admin/accounts/new|AdminNewAccountFormAction|
-|Submit new account details|POST /app/admin/accounts/create|AdminCreateAccountAction|
-|Get details of an account|GET /app/admin/accounts/details?id=xx|AdminReadAccountDetailsAction|
-|Update details of an account|POST /app/admin/accounts/update|AdminUpdateAccountAction|
-|Get tasks dashboard|GET /app/tasks/dashboard|UserTasksDashboardAction|
-|Get new task form|GET /app/tasks/new|UserNewTaskFormAction|
-|Submit new task details|POST /app/tasks/create|UserCreateTaskAction|
-|Get details of a task|GET /app/tasks/details?id=xx|UserReadTaskDetailsAction|
-|Update details of a task|POST /app/tasks/update|UserUpdateTaskAction|
-|Get details of my profile|GET /app/users/profile|UserReadProfileAction|
-|Update my profile details|POST /app/users/update|UserUpdateProfileAction|
-|Logout|GET /app/logout|LogoutAction|
+|Submit empty login credentials|`GET /app/login`|LoginAction|
+|Submit login credentials|`POST /app/login`|LoginAction|
+|Get accounts dashboard|`GET /app/admin/accounts/dashboard`|AdminAccountsDashboardAction|
+|Get new account form|`GET /app/admin/accounts/new`|AdminNewAccountFormAction|
+|Submit new account details|`POST /app/admin/accounts/create`|AdminCreateAccountAction|
+|Get details of an account|`GET /app/admin/accounts/details?id=xx`|AdminReadAccountDetailsAction|
+|Update details of an account|`POST /app/admin/accounts/update`|AdminUpdateAccountAction|
+|Get tasks dashboard|`GET /app/tasks/dashboard`|UserTasksDashboardAction|
+|Get new task form|`GET /app/tasks/new`|UserNewTaskFormAction|
+|Submit new task details|`POST /app/tasks/create`|UserCreateTaskAction|
+|Get details of a task|`GET /app/tasks/details?id=xx`|UserReadTaskDetailsAction|
+|Update details of a task|`POST /app/tasks/update`|UserUpdateTaskAction|
+|Get details of my profile|`GET /app/users/profile`|UserReadProfileAction|
+|Update my profile details|`POST /app/users/update`|UserUpdateProfileAction|
+|Logout|`GET /app/logout`|LogoutAction|
 
 ## Views
 The job of an action handler is to execute the business logic and choose an appropriate **View** component as a response to the request made by an user. The table below shows all action handlers and their view components:
 |Action Handler|View Component|
 |---|---|
-|LoginAction|/WEB-INF/pages/admin/accounts/dashboard.jsp <br> /WEB-INF/pages/tasks/dashboard.jsp|
-|AdminAccountsDashboardAction|/WEB-INF/pages/admin/accounts/dashboard.jsp|
-|AdminNewAccountFormAction|/WEB-INF/pages/admin/accounts/newAccount.jsp|
-|AdminCreateAccountAction|/WEB-INF/pages/admin/accounts/createAccountResult.jsp|
-|AdminReadAccountDetailsAction|/WEB-INF/pages/admin/accounts/accountDetails.jsp|
-|AdminUpdateAccountAction|/WEB-INF/pages/admin/accounts/updateAccountResult.jsp|
-|UserTasksDashboardAction|/WEB-INF/pages/tasks/dashboard.jsp|
-|UserNewTaskFormAction|/WEB-INF/pages/tasks/newTask.jsp|
-|UserCreateTaskAction|/WEB-INF/pages/tasks/createTeaskResult.jsp|
-|UserReadTaskDetailsAction|/WEB-INF/pages/tasks/taskDetails.jsp|
-|UserUpdateTaskAction|/WEB-INF/pages/tasks/updateTaskResult.jsp|
-|UserReadProfileAction|/WEB-INF/pages/users/viewProfile.jsp|
-|UserUpdateProfileAction|/WEB-INF/pages/users/updateProfileResult.jsp|
-|UnknownAction|/WEB-INF/pages/users/unknownAction.jsp|
+|LoginAction|`/WEB-INF/pages/admin/accounts/dashboard.jsp` <br> `/WEB-INF/pages/tasks/dashboard.jsp`|
+|AdminAccountsDashboardAction|`/WEB-INF/pages/admin/accounts/dashboard.jsp`|
+|AdminNewAccountFormAction|`/WEB-INF/pages/admin/accounts/newAccount.jsp`|
+|AdminCreateAccountAction|`/WEB-INF/pages/admin/accounts/createAccountResult.jsp`|
+|AdminReadAccountDetailsAction|`/WEB-INF/pages/admin/accounts/accountDetails.jsp`|
+|AdminUpdateAccountAction|`/WEB-INF/pages/admin/accounts/updateAccountResult.jsp`|
+|UserTasksDashboardAction|`/WEB-INF/pages/tasks/dashboard.jsp`|
+|UserNewTaskFormAction|`/WEB-INF/pages/tasks/newTask.jsp`|
+|UserCreateTaskAction|`/WEB-INF/pages/tasks/createTeaskResult.jsp`|
+|UserReadTaskDetailsAction|`/WEB-INF/pages/tasks/taskDetails.jsp`|
+|UserUpdateTaskAction|`/WEB-INF/pages/tasks/updateTaskResult.jsp`|
+|UserReadProfileAction|`/WEB-INF/pages/users/viewProfile.jsp`|
+|UserUpdateProfileAction|`/WEB-INF/pages/users/updateProfileResult.jsp`|
+|UnknownAction|`/WEB-INF/pages/users/unknownAction.jsp`|
