@@ -165,7 +165,7 @@ In the above example URL, 'http' is the protocol, 'www.example.com' is the domai
 
 A web application runs on the web server, unlike applications that are run on our PCs. A Java application running on a web server is called as a Servlet. Servlets emulate the web applications. They run inside a container. Apache Tomcat is a popular example of such a container. The container software translates the raw HTTP requests and responses into Java objects and provides them for servlets. A static website serves the same content for every HTTP request. But, a servlet can generate dynamic content that is distinct for every HTTP request made.
 
-The todo web app that we are building will contain multiple servlets. We shall put them all together under one application context (or application environment) on the container (Tomcat). We shall call this application context as 'todo'. So, if we are running Tomcat on our PC, our application context 'todo' can be accessed through the URL:
+The todo web app that we are building will contain multiple parts - servlets, filters, jsp files, database classes, POJOs etc. We shall put them all together (like bundling them) under one application context (or application environment) on the container (Tomcat). We shall call this application context as 'todo'. So, if we are running Tomcat on our PC at port 8080, our application context 'todo' can be accessed through the URL:
 
 http://localhost:8080/todo/
 
