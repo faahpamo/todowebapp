@@ -90,9 +90,9 @@ Example data for few accounts:
 |Account ID|Username|First Name|Last Name|Password|Created At|Status|
 |---|---|---|---|---|---|---|
 |1|admin|Administrator|User|password|2020-05-06 17:34:04|enabled|
-|2|john@example.com|John|Johnsson|oneword|2020-05-07 12:34:04|disabled|
-|3|eric@example.com|Eric|Ericsson|twoword|2020-05-08 13:34:04|enabled|
-|4|ana@example.com|Ana|Mary|threeword|2020-05-09 11:34:04|enabled|
+|2|john[]()@example.com|John|Johnsson|oneword|2020-05-07 12:34:04|disabled|
+|3|eric[]()@example.com|Eric|Ericsson|twoword|2020-05-08 13:34:04|enabled|
+|4|ana[]()@example.com|Ana|Mary|threeword|2020-05-09 11:34:04|enabled|
 
 We see that account statuses are repeated throughout the table. So, as part of database normalization, it's better to put the repeated data in a separate table. There's some good reason behind. Let's say, we have 100 users. And we want to replace the words enabled and disabled with 1 and 2 respectively. We have to modify the status column of all rows of the table. Imagine how cumbersome it will be to do such modification for a table with thousands of rows! Database normalization at rescue, thankfully!
 
@@ -108,9 +108,9 @@ After normalization, we shall have two tables - account_statuses and accounts:
 |Account ID|Username|First Name|Last Name|Password|Status ID|
 |---|---|---|---|---|---|
 |1|admin|Administrator|User|password|1|
-|2|john@example.com|John|Johnsson|oneword|2|
-|3|eric@example.com|Eric|Ericsson|twoword|1|
-|4|ana@example.com|Ana|Mary|threeword|2|
+|2|john[]()@example.com|John|Johnsson|oneword|2|
+|3|eric[]()@example.com|Eric|Ericsson|twoword|1|
+|4|ana[]()@example.com|Ana|Mary|threeword|2|
 
 Similarly, we shall have three tables for tasks - task_statuses, task_priorities and tasks: 
 
