@@ -103,7 +103,7 @@ After normalization, we shall have two tables - account_statuses and accounts:
 |3|eric@example.com|Eric|Ericsson|twoword|1|
 |4|ana@example.com|Ana|Mary|threeword|2|
 
-Similarly, we shall have two tables for tasks - task_statuses and tasks: 
+Similarly, we shall have three tables for tasks - task_statuses, task_priorities and tasks: 
 
 **TASK_STATUSES**
 |ID|Status|
@@ -112,11 +112,19 @@ Similarly, we shall have two tables for tasks - task_statuses and tasks:
 |2|in progress|
 |3|done|
 
+**TASK_PRIORITIES**
+|ID|Priority|
+|---|---|
+|1|important & urgent|
+|2|important but not urgent|
+|3|not important but urgent|
+|4|not important and not urgent|
+
 **TASKS**
-|Task ID|Account ID|Details|Created At|Status ID|
-|---|---|---|---|---|
-|1|2|Buy pencils.|2019-05-06 17:40:03|2|
-|2|3|Buy books.|2019-05-07 7:40:03|1|
+|Task ID|Account ID|Details|Created At|Deadline|Last Updated|Status ID|Priority ID|
+|---|---|---|---|---|---|---|---|
+|1|2|Buy pencils.|2019-05-06 17:40:03|2019-05-07 17:40:03| |2|1|
+|2|3|Buy books.|2019-05-07 7:40:03|2019-05-07 17:40:03| |2|1|
 
 Finally, we also have another requirement to store account session data. We shall store it as shown in below table:
 
