@@ -349,3 +349,23 @@ We don't intercept responses that we send out.
 
 ## Results
 So, here's how our application looks:
+
+![Figure 3](images/ToDoWebAppDefaultPage.png "Application Default Page")
+
+![Figure 4](images/ToDoWebAppAuthenticationFailed.png "Authentication Failed")
+
+![Figure 5](images/ToDoWebAppAccountDisabled.png "Account Disabled")
+
+![Figure 6](images/ToDoWebAppAdminAccountsDashboard.png "Admin Accounts Dashboard")
+
+![Figure 7](images/ToDoWebAppAdminProfile.png "Admin Profile")
+
+![Figure 8](images/ToDoWebAppAdminCreateNewAccountForm.png "Admin Create New Account Form")
+
+![Figure 9](images/ToDoWebAppUserTasksDashboard.png "Tasks Dashboard")
+
+![Figure 10](images/ToDoWebAppUserTasksDetails.png "Tasks Details")
+
+![Figure 11](images/ToDoWebAppUserCreateNewTask.png "Create New Task")
+
+![Figure 12](images/ToDoWebAppUserProfile.png "Non-admin User Profile")
