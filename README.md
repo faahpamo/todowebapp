@@ -327,7 +327,7 @@ The job of an action handler is to execute the business logic and choose an appr
 |AdminUpdateAccountAction|`/WEB-INF/pages/admin/accounts/updateAccountResult.jsp`|
 |UserTasksDashboardAction|`/WEB-INF/pages/tasks/dashboard.jsp`|
 |UserNewTaskFormAction|`/WEB-INF/pages/tasks/newTask.jsp`|
-|UserCreateTaskAction|`/WEB-INF/pages/tasks/createTeaskResult.jsp`|
+|UserCreateTaskAction|`/WEB-INF/pages/tasks/createTaskResult.jsp`|
 |UserReadTaskDetailsAction|`/WEB-INF/pages/tasks/taskDetails.jsp`|
 |UserUpdateTaskAction|`/WEB-INF/pages/tasks/updateTaskResult.jsp`|
 |UserReadProfileAction|`/WEB-INF/pages/users/viewProfile.jsp`|
@@ -335,6 +335,12 @@ The job of an action handler is to execute the business logic and choose an appr
 |UnknownAction|`/WEB-INF/pages/users/unknownAction.jsp`|
 
 The view component builds the required HTML response that will be sent to the the user. View component reads the messages set by the action handler and shows it to the user.
+### Filters
+We use filters to intercept incoming HTTP requests. All the filters will be used before the request is passed to the controller servlet. Any incoming HTTP request will be first handled by authentication filter. Through this filter we check if the user is already logged in or not. If not logged in, we redirect the user to login page. After successfully passing through the authentication filter, the HTTP request will get intercepted by two more filters. In these filters we check the URI path and the user is 'admin' or normal user. If a normal user is trying to access 'admin' URI paths, we prevent such access. If 'admin' user is trying to access tasks related URI paths, we prevent such access.
+
+Only 'admin' can access the URIs beginning with `/app/admin/*` and only normal user can access the URIs beginning with `/app/tasks/*`. Other URIs `/app/login`, `/app/logout`, `/app/users/*` can be accessed by both.
+
+We don't intercept responses that we send out.
 
 ## Results
 So, here's how our application looks:
