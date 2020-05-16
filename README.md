@@ -362,10 +362,12 @@ So, here's how our application looks like. I've kept the UI plain for simplicity
 
 ![Figure 8](images/ToDoWebAppAdminCreateNewAccountForm.png "Admin Create New Account Form")
 
-![Figure 9](images/ToDoWebAppUserTasksDashboard.png "Tasks Dashboard")
+![Figure 9](images/ToDoWebAppAccountDetails.png "Admin View An User's Account Details")
 
-![Figure 10](images/ToDoWebAppUserTasksDetails.png "Tasks Details")
+![Figure 10](images/ToDoWebAppUserTasksDashboard.png "Tasks Dashboard")
 
-![Figure 11](images/ToDoWebAppUserCreateNewTask.png "Create New Task")
+![Figure 11](images/ToDoWebAppUserTasksDetails.png "Tasks Details")
 
-![Figure 12](images/ToDoWebAppUserProfile.png "Non-admin User Profile")
+![Figure 12](images/ToDoWebAppUserCreateNewTask.png "Create New Task")
+
+![Figure 13](images/ToDoWebAppUserProfile.png "Non-admin User Profile")
