@@ -348,7 +348,7 @@ Only 'admin' can access the URIs beginning with `/app/admin/*` and only normal u
 We don't intercept responses that we send out.
 
 ## Results
-So, here's how our application looks:
+So, here's how our application looks like. I've kept the UI plain for simplicity. There's no CSS or JavaScript.
 
 ![Figure 3](images/ToDoWebAppDefaultPage.png "Application Default Page")
 
