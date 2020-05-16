@@ -150,7 +150,10 @@ We shall call our database as 'todo' in MySQL. And here's the data model built b
 
 ![Figure 1](images/ToDoWebAppDataModel.png "Application Data Model")
 ## Application Architecture
-We shall develop this application following the famous and widely used MVC 2 desgin pattern. Our application will be action based. When a user sends a HTTP request to our application, we translate it to corresponding action on our application. The actions we support are create, read and update (CRU). Our application essentially is a data driven. It facilitates actions on the database. It helps users to store and manage their data on a remote database securely and safely with the help of authentication and authorization mechanisms. It acts as an HTML and HTTP based interface to the database.
+We shall develop this application following the famous and widely used MVC 2 desgin pattern. Below figure shows how we are going to implement MVC for our app:
+![Figure 2](images/ToDoWebAppMVC.png "Application MVC")
+
+Our application will be action based. When a user sends a HTTP request to our application, we translate it to corresponding action on our application. The actions we support are create, read and update (CRU). Our application essentially is a data driven. It facilitates actions on the database. It helps users to store and manage their data on a remote database securely and safely with the help of authentication and authorization mechanisms. It acts as an HTML and HTTP based interface to the database.
 
 When a user makes a HTTP request to our application, we send back requested data in the form of HTML. HTML supports links and forms to help users interact with web applications. Links are used to retrieve/get (HTTP GET) information, while forms are used to post data (HTTP POST) to the web application.
 
