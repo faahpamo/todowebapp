@@ -18,6 +18,8 @@
 
   * [Views](https://github.com/faimoh/todowebapp#views)
   
+  * [Filters](https://github.com/faimoh/todowebapp#filters)
+  
 [Results](https://github.com/faimoh/todowebapp#results)
 
 ## Introduction
