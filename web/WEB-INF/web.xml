@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/pages/login.jsp</welcome-file>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>io.github.faimoh.todowebapp.filters.AuthenticationFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>AdminPortalFilter</filter-name>
+        <filter-class>io.github.faimoh.todowebapp.filters.AdminPortalFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>TasksPortalFilter</filter-name>
+        <filter-class>io.github.faimoh.todowebapp.filters.TasksPortalFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/app/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AdminPortalFilter</filter-name>
+        <url-pattern>/app/admin/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>TasksPortalFilter</filter-name>
+        <url-pattern>/app/tasks/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>Main</servlet-name>
+        <servlet-class>io.github.faimoh.todowebapp.controllers.Main</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Main</servlet-name>
+        <url-pattern>/app/*</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/WEB-INF/pages/login.jsp?message=Authentication failed. Check credentials supplied.</location>
+    </error-page>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
